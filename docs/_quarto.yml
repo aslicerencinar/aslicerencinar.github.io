@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: docs
+sidebar:
+  contents:
+    - about.qmd
+website:
+  title: "About"
+  navbar: 
+    search: true
+    background: primary
+    left:
+      - href: research.qmd   
+        icon: 'vector-pen'
+format:
+  html:
+    theme:
+      dark: pulse
+      light: litera
+      
+    css: styles.css
+    toc: true
+    font-family: sans-serif
+
+
+
