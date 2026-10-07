@@ -1,1 +1,70 @@
 /* css styles */
+
+/* Research page: one block per paper */
+.paper {
+  padding: 1rem 0 1.25rem;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.paper h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 1.2rem;
+}
+
+.paper-authors,
+.paper-venue {
+  color: #555;
+  margin-right: 0.5rem;
+}
+
+.paper-status {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #eef3f8;
+  color: #446e9b;
+}
+
+.paper p {
+  margin-bottom: 0.4rem;
+}
+
+/* Clickable abstract toggle */
+.paper details summary {
+  cursor: pointer;
+  color: var(--bs-primary, #446e9b);
+  font-weight: 500;
+  display: inline-block;
+}
+
+.paper details summary::before {
+  content: "▸ ";
+}
+
+.paper details[open] summary::before {
+  content: "▾ ";
+}
+
+.paper details summary:hover {
+  text-decoration: underline;
+}
+
+.paper details[open] summary {
+  margin-bottom: 0.5rem;
+}
+
+.paper details p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  text-align: justify;
+}
+
+/* Link icon next to a paper title */
+.paper-link {
+  text-decoration: none;
+  font-size: 0.95em;
+  margin-left: 0.15rem;
+}

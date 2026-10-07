@@ -1,0 +1,139 @@
+/* One-page home layout */
+
+:root {
+  --op-accent: #9a3b26;      /* headings, links, navbar (brick) */
+  --op-accent-soft: #f6ebe6; /* badges */
+  --op-ink: #222;
+  --op-muted: #5b6470;
+}
+
+/* Top bar: solid brick (a white version was tried and dropped) */
+.navbar { background-color: var(--op-accent) !important; }
+main a { color: var(--op-accent); }
+
+/* Hide Quarto's default title block on this page */
+#title-block-header { display: none; }
+
+.op-wrap {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 3.5rem;
+  max-width: 1100px;
+  margin: 2rem auto 4rem;
+}
+
+/* Left column */
+.op-side {
+  position: sticky;
+  top: 5rem;
+  align-self: start;
+  text-align: center;
+}
+.op-photo {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+.op-name {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--op-ink);
+}
+.op-role {
+  display: block;
+  color: var(--op-muted);
+  font-size: 0.95rem;
+  margin: 0.25rem 0 1rem;
+}
+.op-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  font-size: 1.25rem;
+}
+.op-links a { color: var(--op-accent); }
+
+
+/* Right column */
+.op-main h2 {
+  color: var(--op-accent);
+  font-size: 1.7rem;
+  border-bottom: 2px solid var(--op-accent);
+  padding-bottom: 0.3rem;
+  margin: 2.5rem 0 1.25rem;
+}
+.op-main h2:first-child { margin-top: 0; }
+.op-main h3 {
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--op-muted);
+  margin-top: 1.75rem;
+}
+.op-main > p { line-height: 1.65; }
+
+/* Paper entries */
+.paper {
+  padding: 0.9rem 0 1.1rem;
+  border-bottom: 1px solid #e6e6e6;
+}
+.paper h4 {
+  font-size: 1.1rem;
+  margin: 0 0 0.35rem;
+  color: var(--op-ink);
+}
+.paper p { margin-bottom: 0.35rem; }
+.paper-authors, .paper-venue { color: var(--op-muted); margin-right: 0.5rem; }
+.paper-status {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: var(--op-accent-soft);
+  color: var(--op-accent);
+}
+.paper details summary {
+  cursor: pointer;
+  color: var(--op-accent);
+  font-weight: 500;
+  display: inline-block;
+}
+.paper details summary::before { content: "▸ "; }
+.paper details[open] summary::before { content: "▾ "; }
+.paper details[open] summary { margin-bottom: 0.5rem; }
+.paper details p { font-size: 0.95rem; line-height: 1.55; }
+
+.btn-outline-primary {
+  color: var(--op-accent);
+  border-color: var(--op-accent);
+}
+.btn-outline-primary:hover {
+  background-color: var(--op-accent);
+  border-color: var(--op-accent);
+  color: #fff;
+}
+
+/* Phone / narrow screens: stack columns */
+@media (max-width: 800px) {
+  .op-wrap { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem; }
+  .op-side { position: static; }
+  .op-photo { max-width: 220px; }
+}
+
+/* Link icon next to a paper title */
+.paper-link {
+  text-decoration: none;
+  color: var(--op-accent) !important;
+  font-size: 0.95em;
+  margin-left: 0.15rem;
+}
+
+/* Fonts: Source Serif 4 for headings, Source Sans 3 for text */
+:root {
+  --op-head-font: "Source Serif 4", Georgia, serif;
+  --op-body-font: "Source Sans 3", -apple-system, "Segoe UI", sans-serif;
+}
+body, .navbar, .btn { font-family: var(--op-body-font); }
+h1, h2, h3, h4, .op-name, .navbar-title { font-family: var(--op-head-font); }
